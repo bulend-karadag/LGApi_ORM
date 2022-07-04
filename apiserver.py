@@ -15,9 +15,14 @@ app.add_middleware(
 )
 
 #conn = sqlite3.connect('libgen.db', check_same_thread=False)
-engine = create_engine('mysql+pymysql://xxxxxx:xxxxxx@localhost/LibGen' )
+engine = create_engine('mysql+pymysql://xxxxx:xxxxx@localhost/LibGen' )
 #connection = mysql.connector.connect(user="dnelub", password="toprakmaya", host="localhost", database="LibGen")
 connection = engine.connect()
+
+def SQLtoPandas(sql_code): # select from MYSQL database and put into pandas DataFrame   
+    with engine.connect() as connection:
+        result = pd.read_sql(sql_code, connection)
+    return result
 
 # define a root `/` endpoint
 @app.get("/")
@@ -39,7 +44,7 @@ def index_params(search, keyword, limit, page):
     results = []
     if search=='Title':
         query = connection.execute(f"SELECT * FROM clean_update WHERE Title LIKE '%{keyword}%' ORDER BY ID LIMIT {limit}")
-        columns = [column[0] for column in c.description]
+        #columns = [column[0] for column in c.description]
         for row in query:
             results.append(dict(zip(columns, row)))
     elif search=='Author':
