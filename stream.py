@@ -7,6 +7,7 @@ import json
 
 st.set_page_config(layout="wide")
 st.write('<style>div.row-widget.stRadio > div{flex-direction:row;}</style>', unsafe_allow_html=True)
+data = None
 
 def langList():
     t = pd.read_csv('languages.csv')
@@ -41,7 +42,6 @@ if submit_button:
     data = pd.DataFrame(response.json())
     if len(data)>0:
         data['link'] = "http://libgen.is/get.php?md5="+data['md5']
-    st.session_state['data'] = data   
     st.session_state['page']=0
 
 if st.button('Next Page >>'):
@@ -60,15 +60,15 @@ for col, field_name in zip(colms, fields):
     # header
     col.subheader(field_name)
 
-for x, row in data.iterrows():
-    col1, col2, col3, col4, col5, col6 = st.columns((1, 5, 4, 2, 1, 1))
-    col1.write(row['id'])  # index
-    col2.write(row['title'])  # title
-    col3.write(row['author'])  # author
-    col4.write(row['publisher'])   # publisher
-    col5.write(row['year'])  # year
-    col6.write(f"[url]({row['link']})")   # link
-
+if (data is not None):
+    for x, row in data.iterrows():
+        col1, col2, col3, col4, col5, col6 = st.columns((1, 5, 4, 2, 1, 1))
+        col1.write(row['id'])  # index
+        col2.write(row['title'])  # title
+        col3.write(row['author'])  # author
+        col4.write(row['publisher'])   # publisher
+        col5.write(row['year'])  # year
+        col6.write(f"[url]({row['link']})")   # link
 
 
     

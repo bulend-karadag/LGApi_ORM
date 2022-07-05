@@ -25,11 +25,4 @@ class book(bookBase):
         orm_mode = True
 
 
-class langExt(BaseModel):
-    language : str = None
-    extension : str = None
-    
-    class Config:
-        orm_mode = True
-
     

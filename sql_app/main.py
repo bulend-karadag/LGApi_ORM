@@ -28,25 +28,6 @@ def get_db():
     finally:
         db.close()
 
-@app.get("/books/author/{author}", response_model=List[schemas.book])
-def read_books( author: str,
-    skip: int = 0, 
-    limit: int = 20, 
-    db: Session = Depends(get_db)):
-    books = crud.get_book_author(db, book_author= author, skip=skip, limit=limit)
-    return books
-
-
-@app.get("/books/title/{title}", response_model=List[schemas.book])
-def read_book(title: str,
-              skip: int = 0, 
-              limit: int = 20,
-              db: Session = Depends(get_db)):
-    db_book = crud.get_book_title(db, book_title= title, skip=skip, limit=limit)
-    if db_book is None:
-        raise HTTPException(status_code=404, detail="book not found")
-    return db_book
-
 @app.get("/books", response_model=List[schemas.book])
 def index_params(search, keyword, language, extension, limit, page, db: Session = Depends(get_db)):
     l=int(limit)
