@@ -3,7 +3,7 @@ from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 import pymysql
 
-SQLALCHEMY_DATABASE_URL = 'mysql+pymysql://xxxx:xxxxx@localhost:3306/LibGen'
+SQLALCHEMY_DATABASE_URL = 'mysql+pymysql://user:password@localhost:3306/LibGen'
 #SQLALCHEMY_DATABASE_URL = "sqlite:////home/dnelub/Documents/LGApi/sql_app/libgen.db"
 # SQLALCHEMY_DATABASE_URL = "postgresql://user:password@postgresserver/db"
 

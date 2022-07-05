@@ -27,7 +27,7 @@ def extList():
 with st.sidebar:
     with st.form(key='my_form'):
         search_type = st.radio( "Please select search type ", ('Title', 'Author', 'Publisher'))
-        text_input = st.text_input(label='Enter a keyword')
+        text_input = ' '.join(st.text_input(label='Enter your keywords').split())
         search_limit = st.radio( "Number of results per page ", (25, 50, 100, 200))
         languageList = langList()
         extensionList = extList()
