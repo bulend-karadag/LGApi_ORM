@@ -18,7 +18,7 @@ SQLALCHEMY_DATABASE_URL = 'mysql+pymysql://user:password@localhost:3306/db_name'
 SQLALCHEMY_DATABASE_URL = "sqlite:///./sql_app/db_name.db"
 SQLALCHEMY_DATABASE_URL = "postgresql://user:password@postgresserver/db_name"
 ```
-After changing the path of database, just use following commands in two different terminal. 
+After changing the path of database, just use following commands in two different terminals. 
 
 ```
 uvicorn sql_app.main:app --reload
