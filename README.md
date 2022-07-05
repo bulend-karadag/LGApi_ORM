@@ -26,7 +26,7 @@ streamlit run stream.py
 ```
 You will see the following screen in your default browser. 
 
-![screenshoot from the server](https://github.com/bulend-karadag/LGApi_ORM/Screenshot.png?raw=true)
+![screenshoot from the server](Screenshot.png)
 
 
 Now, 3 million books are just one click away.  
