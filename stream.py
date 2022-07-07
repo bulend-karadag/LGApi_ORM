@@ -15,12 +15,15 @@ def langList():
     y = t['Language_native'].to_list()
     xx = [j.strip().split()[0] for j in x]
     yy = [j.strip().split()[0] for j in y]
+    xx.sort()
+    yy.sort()
     xx.extend(yy)
     return xx
 
 def extList():
     t = pd.read_csv('extensions.csv')
     x = t['extensions'].to_list()
+    x.sort()
     return x
         
 

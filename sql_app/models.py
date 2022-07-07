@@ -15,16 +15,6 @@ class books(Base):
     publisher = Column(String(256), index=True)
     md5 = Column(String(256))
     
-'''
-    id = Column(Integer,  primary_key=True, index=True)
-    title = Column(String, index=True)
-    author = Column(String, index=True)
-    language = Column(String, index=True)
-    year = Column(String, index=True)
-    extension = Column(String, index=True)
-    publisher = Column(String, index=True)
-    md5 = Column(String)
-'''
     
 
 
