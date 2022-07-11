@@ -15,8 +15,7 @@ app.add_middleware(
 )
 
 #conn = sqlite3.connect('libgen.db', check_same_thread=False)
-engine = create_engine('mysql+pymysql://xxxxx:xxxxx@localhost/LibGen' )
-#connection = mysql.connector.connect(user="dnelub", password="toprakmaya", host="localhost", database="LibGen")
+engine = create_engine('mysql+pymysql://user:password@localhost/LibGen')
 connection = engine.connect()
 
 def SQLtoPandas(sql_code): # select from MYSQL database and put into pandas DataFrame   
